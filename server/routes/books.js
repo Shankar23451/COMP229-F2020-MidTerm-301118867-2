@@ -114,7 +114,13 @@ router.post('/:id', (req, res, next) => {
 
 // GET - process the delete by user id
 router.get('/delete/:id', (req, res, next) => {
+    console.log(req.params.id);
     book.findByIdAndDelete(req.params.id.value, (err, books) => {
+        if (err) {
+            return console.error(err);
+        }
+    });
+    book.find((err, books) => {
         if (err) {
             return console.error(err);
         } else {
@@ -124,6 +130,7 @@ router.get('/delete/:id', (req, res, next) => {
             });
         }
     });
+    return res.redirect('/books');
 });
 
 
