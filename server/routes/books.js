@@ -106,10 +106,7 @@ router.post('/:id', (req, res, next) => {
             });
         }
     });
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
+    return res.redirect('/books');
 });
 
 // GET - process the delete by user id
