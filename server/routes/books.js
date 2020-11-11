@@ -118,8 +118,8 @@ router.get('/delete/:id', (req, res, next) => {
     book.findByIdAndRemove(req.params.id, (err) => {
         if (err) {
             return console.error(err);
-        } else {
-            alert('Book is deleted.');
+        } else{
+            console.log('Book is deleted.');
         }
     });
     book.find((err, books) => {
