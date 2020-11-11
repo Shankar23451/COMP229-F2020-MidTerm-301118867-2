@@ -115,7 +115,7 @@ router.post('/:id', (req, res, next) => {
 // GET - process the delete by user id
 router.get('/delete/:id', (req, res, next) => {
     console.log(req.params.id);
-    book.findByIdAndDelete(req.params.id.value, (err, books) => {
+    book.findByIdAndRemove(req.params.id, (err) => {
         if (err) {
             return console.error(err);
         }
