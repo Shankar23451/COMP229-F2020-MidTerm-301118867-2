@@ -114,18 +114,13 @@ router.post('/:id', (req, res, next) => {
 
 // GET - process the delete by user id
 router.get('/delete/:id', (req, res, next) => {
-    book.findById(req.params.id.value, (err, books) => {
+    book.findByIdAndDelete(req.params.id.value, (err, books) => {
         if (err) {
             return console.error(err);
         } else {
-            res.render('books/details', {
-                title: 'Edit Book',
-                books: books,
-                Title: book.Title,
-                Description: book.Description,
-                Price: book.Price,
-                Author: book.Author,
-                Genre: book.Genre
+            res.render('books/index', {
+                title: 'Books',
+                books: books
             });
         }
     });
